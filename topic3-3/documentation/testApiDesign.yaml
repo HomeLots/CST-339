@@ -1,0 +1,67 @@
+swagger: "2.0"
+info:
+  description: "GET Orders List in JSON and XML Activity 3.3"
+  version: "1.0.0"
+  title: "Get Orders"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "N/A"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/service"
+tags:
+- name: "orders"
+  description: "Retrieve list of orders"
+schemes:
+- "http"
+paths:
+  /getJson:
+    get:
+      tags:
+      - "orders"
+      summary: "Display OrderList in JSON format"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+  /getXml:
+    get:
+      tags:
+      - "orders"
+      summary: "Display OrderList in XML Format"
+      description: "Multiple status values can be provided with comma separated strings"
+      responses:
+        "200":
+          description: "Success"
+definitions:
+  Order:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      orderNo:
+        type: "string"
+      productName:
+        type: "string"
+      price:
+        type: "number"
+      quantity:
+        type: "integer"
+    xml:
+      name: "Order"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
